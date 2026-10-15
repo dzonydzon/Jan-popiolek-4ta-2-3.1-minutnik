@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Threading;
 
@@ -12,6 +13,7 @@ public partial class MainWindow : Window
     private bool isRunning;
     private bool hasStarted;
     private int completedCycles;
+    private readonly List<string> _history = new();
 
     public MainWindow()
     {
@@ -74,6 +76,8 @@ public partial class MainWindow : Window
             if (isWorkPhase)
             {
                 completedCycles++;
+                _history.Add($"{DateTime.Now:HH:mm} — cykl {completedCycles}");
+                HistoryList.ItemsSource = _history.ToArray();
             }
 
             isWorkPhase = !isWorkPhase;

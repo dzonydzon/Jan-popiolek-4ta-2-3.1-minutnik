@@ -5,10 +5,10 @@
         mc:Ignorable="d"
         x:Class="okno.MainWindow"
         Title="Minutnik"
-        Width="560" Height="520"
-        MinWidth="460" MinHeight="480"
+        Width="560" Height="650"
+        MinWidth="460" MinHeight="600"
         Background="#F3F5F2">
-    <Grid Margin="32" RowDefinitions="Auto,*,Auto,Auto" RowSpacing="22">
+    <Grid Margin="32" RowDefinitions="Auto,*,Auto,Auto,Auto" RowSpacing="18">
         <Grid Grid.Row="0" ColumnDefinitions="*,Auto" VerticalAlignment="Center">
             <StackPanel Spacing="3">
                 <TextBlock Text="MINUTNIK" FontSize="13" FontWeight="Bold" Foreground="#66716A" />
@@ -56,7 +56,12 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="3" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+        <StackPanel Grid.Row="3" Spacing="8">
+            <TextBlock Text="Historia ukończonych cykli" FontSize="13" Foreground="#4D5A51" />
+            <ListBox x:Name="HistoryList" Height="90" />
+        </StackPanel>
+
+        <Grid Grid.Row="4" ColumnDefinitions="*,Auto" ColumnSpacing="12">
             <Button x:Name="StartPauseButton" Content="Start" Click="OnStartPauseClick"
                     Height="48" FontSize="16" FontWeight="SemiBold"
                     Background="#D5684C" Foreground="White" />
